@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// ---------------------------------------------------------------------
+// this는 person을 가리킴
+/* var person = {
+		name:"victolee",
+		email:"asdf@example.com",
+		birth:"0225",
+		foo:function(){
+			console.log(this);
+		}
+}
+person.foo(); */
+//---------------------------------------------------------------------
+//foo()함수는 어떤 객체가 호출한 것이 아니기 때문에 this는 특정 객체를 가리키지 않는다.
+//일반 함수일 경우 window객체를 this로 가지고 있다.
+/* var x = 10;// => window.x = 10
+function foo(){
+	this.x = 20;// => window.x = 20
+	x = 30;// => window.x = 30
+	
+	console.log(x);  //30
+	console.log(this.x); //30
+	console.log(window.x); //30
+}
+foo(); */
+//---------------------------------------------------------------------
+
+
+</script>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+</script>
+</head>
+<body>
+	<button class="btn" value="foo">버튼</button>
+</body>
+<!-- 이벤트가 발생한 경우, 이벤트를 발생한 객체가 this -->
+<script>
+    $(".btn").click(function(){
+        console.log(this)
+    })
+</script>
+</html>

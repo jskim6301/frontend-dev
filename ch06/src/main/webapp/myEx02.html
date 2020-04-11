@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var o = {
+		name : '마이콜',
+		age : 20,
+		email : 'michol@googlo.com',
+		hasProperty: function(property){
+			return property in this;
+		}
+}
+	
+var data = "";
+for(var property in o){
+	//console.log(property); // name,age,email,hasProperty
+	console.log(typeof(o[property]));
+}
+</script>
+</head>
+<body>
+<h1>aa</h1>
+</body>
+</html>

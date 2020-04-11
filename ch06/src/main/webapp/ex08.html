@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.addEventListener("load",function(){
+	var img = document.createElement('img');
+	img.src = 'https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6Hj8/image/WK_vVTCXVVZbT2ajgTCdcI2jLLA.jpg';
+	img.width = 400;
+	img.alt = '흑우';
+	img.title= '흑우';	
+	//img.data-name 접근 불가(data-name은 사용자 지정)
+	//img["data-name"] ='흑우'; => 사용자 지정 출력안됨  html5에 (data-) 뒤에 사용자정의가 있음 ,아직까지 표준으로 지정 안되었음. 지금은 비표준이기 때문에 안됨 
+	setTimeout(function(){
+		document.body.appendChild(img);
+	},2000);	
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 속성 조작하기</h1>
+</body>
+</html>

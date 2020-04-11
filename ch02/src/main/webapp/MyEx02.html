@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var obj = {
+	name:"victolee",
+	email:"empty",
+	setEmail:function(email){
+		console.log("obj객체에서 email:"+email);//example.com
+		console.log("obj객체에서 this.email "+this.email);//undefined
+		this.email = email; //window.email (전역객체에서) email을 "example.com"로 설정한다
+	}
+}
+function callback(email,cb){
+	console.log("callback함수에서 email:"+email);
+	cb(email);
+}
+// obj의 this는 window의 전역객체 this이다.
+// console.log(window.email); => undefined 상태이다.
+callback("example.com",obj.setEmail);
+console.log(obj.email);//empty 바뀌지 않았다
+console.log(window.email);//example.com
+
+
+var obj2 = {
+	name:"hong",
+	email:"empty",
+	setEmail : function(email){
+		console.log("obj2객체에서 email:"+email);//example.com
+		console.log("obj2객체에서 this.email "+this.email);//empty
+		this.email = email;
+	}
+}
+function callback2(email,cb){
+	cb.call(obj2,email);
+}
+callback2("example.com",obj2.setEmail);
+console.log(obj2.email);//example.com
+console.log(window.email);
+
+
+</script>
+</head>
+<body>
+<h1>ho</h1>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input{ 
+	background-color:#fff;
+	boarder:2px solid #03CF5D;
+	outline:none;}
+input#user-id { background-color:#EB9095;}
+input#user-id.focused { background-color:#E1E6F6;}
+</style>
+<script>
+function changeBackground(input,className){
+	input.className=className; //input.className에서 className은 class를 뜻하는 정해진 api이고 파라미터값으로 오는 className은 사용자지정
+}
+</script>
+
+</head>
+<body>
+	<form action="">      <!-- this.className를 하면 class="focused"으로 세팅된다  -->
+						  <!-- this.style.backgroundColor는 style태그에서 background-color(-문자 인식못해서 대문자로) backgroundColor -->
+		<input                              
+			type='text'
+			onFocus='changeBackground(this,"focused");'
+			onBlur='changeBackground(this,"");'
+			id='user-id'/>
+		<br/>
+		<input type='text' class='password' id='user-password'/>
+		
+	</form>
+</body>
+</html>
+<!-- onBlur='this.className="";' -->

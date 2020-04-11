@@ -1,0 +1,30 @@
+*{margin:0; padding:0}
+.image-viewer{
+ width:420px;
+ margin:50px auto 0 auto;
+ border: 2px solid #147323 
+}
+/*
+.image-viewer .button{
+ 	display:block;
+	margin: 10px auto; 
+}
+*/
+.image-viewer .buttons{
+	/* background-color: #ccc; */
+	/* padding: 10px 0; */
+	padding: 10px 0 0 0;
+	text-align:center;
+}
+
+.image-viewer div{
+	margin:0 auto 10px auto;
+	width:410px;
+	
+}
+
+.image-viewer div img{
+	display:block;
+	width:400px;
+	margin:0 auto 0 auto; /*작동 안됨 -> display:block으로 설정*/
+}

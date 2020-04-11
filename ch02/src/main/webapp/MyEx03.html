@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// call(), apply()메서드
+/*
+DOM에 한해서 이벤트가 발생한 객체가 아니면 대부분의 this는 기본값인 window가 될 것임
+call()과 apply() 메서드는 this를 조작하는 메서드로서, 원하는 객체를 this로 할당하고 싶을 때 사용한다.
+또한 Function.prototype에 정의된 메서드이기 때문에 어떤 함수던 호출이 가능하다.
+
+차이는 매개변수가 인자이냐 배열이냐의 차이
+someFunction.call("지정할 객체","인자1","인자2",...);
+someFunction.apply("지정할 객체","배열");
+ */
+ 
+var person = {
+	name: "victolee",
+	email: "asdf@example.com",
+	birth: "0225",
+	foo : function(val1,val2,val3){
+		console.log(val1+val2+val3);
+		console.log(this);
+	}
+ }
+ //foo의this객체를 person에서 window로 변경했다.
+ //foo()메서드를 호출하기 위해서는 person 객체에서 호출해야 하므로 원래 this는 person이다.
+ //그러나 첫번째 인자로 window객체를 전달했으므로 this는 window객체로 변경된다.
+ person.foo.call(window,3,6,9);
+ 
+ var person2 = {
+		    name: "victolee",
+		    email: "asdf@example.com",
+		    birth: "0225",
+		    foo : function(){
+		    	sum = arguments[0] + arguments[1] + arguments[2]
+		    	
+		    	console.log(sum);
+		    	console.log(this);
+		    }
+ }
+ let arr = [3,6,9];
+ person.foo.apply(window,arr);
+ 
+</script>
+</head>
+<body>
+<h1>ho</h1>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./jquery/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+//선택자 - 하위 선택자
+
+$(function(){
+	setTimeout(function(){
+		$(".red strong").css('color','#f00');
+		$(".blue strong#s1").css('color','#f00');
+		$(".blue #s2").css({
+			'color': '#f00',
+			textDecoration:'underline'   //text-decoration => 자바에서는 -는 연산자이므로 textDecoration으로 한다 .  정 text-decoration으로 쓰고싶다면 "text-decoration" 으로 사용한다
+		});
+	},2000);
+});
+</script>
+</head>
+<body>
+	<ul>
+		<li class="red"><span><strong> 텍스트 </strong></span>텍스트 텍스트 텍스트 텍스트</li>
+		<li class="blue"><strong id="s1"> 텍스트 </strong> 텍스트 텍스트 텍스트 텍스트 </li>
+		<li class="red"><strong> 텍스트 </strong> 텍스트 텍스트 텍스트 텍스트 </li>
+		<li class="blue"><strong id="s2"> 텍스트 </strong> 텍스트 텍스트 텍스트 텍스트 </li>
+	</ul>
+	
+</body>
+</html>

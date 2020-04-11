@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.addEventListener("load",function(){
+	var h1Element = document.createElement('h1');
+	var textNode = document.createTextNode('Hello DOM');
+	
+	h1Element.append(textNode);//h1Element 과 textNode 연결
+	
+	setTimeout(function(){
+		document.body.appendChild(h1Element);//body와 h1Element 연결	(트리 완성되어서 출력)
+		//h1Element.createElement('em');  에러 뜬다 => create는 document에서만 생성 가능
+	},2000);
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 만들기 01</h1>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.addEventListener("load",function(){
+	
+	//(표준 + 비표준) 속성 접근하기 위해서는 setAttribute 메소드를 사용한다.
+	
+	var img = document.createElement('img');
+	img.setAttribute('src','https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6Hj8/image/WK_vVTCXVVZbT2ajgTCdcI2jLLA.jpg'); 
+	img.setAttribute('width',400)
+	img.setAttribute('alt','흑우');
+	img.setAttribute('title','흑우');
+	img.setAttribute('data-name','흑우'); //자신이 만든 것 (data-name)
+	
+	
+	setTimeout(function(){
+		document.body.appendChild(img);
+	},2000);	
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 속성 조작하기</h1>
+</body>
+</html>

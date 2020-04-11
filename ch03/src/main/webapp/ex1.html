@@ -4,26 +4,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>마진과 패딩</title>
 <style type="text/css">
-body {
-	font-family: "돋움", "맑은 고딕";
-	font-size: 0.8em;
-	color: #333;	
+*{margin:0; padding:0}
+body{
+	font-family:"돋움","맑은 고딕";
+	font-size:0.8em;
+	color:#333;
 }
-
 .box1 {
 	border:1px solid #666;
 	width:300px;
-	background-color: #FFC;
+	background-color:#FFC;
+	margin: 0 auto;/* 0값은 위 아래 여백을 주지 않는다는 의미 , auto - 가로 중앙에 배치(좌우 여백은 균등하게 배치)*/
+	height:50px;
+	padding:10px;
 }
-
 </style>
+<script>
+function onDivClicked(el){
+	console.log(el.style.marginTop); // 200px
+	var marginTop = parseInt(el.style.marginTop);
+	console.log(marginTop);//200
+	var inervalId = setInterval(function(){
+		if(marginTop < -80) {
+			clearInterval(inervalId);
+			return;
+		}
+		marginTop -= 10;
+		el.style.marginTop = marginTop + "px";
+		console.log(marginTop);
+		
+	}, 2000);
+}
+</script>
 </head>
 
 <body>
-<div class="box1">
-CSS에서 가장 보편적이고 많이 사용하는 마진과 패딩에 대한 값이 어떻게 적용되는지 확인해 보겠습니다.
+<div class="box1" style="margin-top:200px" onclick="onDivClicked(this);">
+	CSS에서 가장 보편적이고 많이 사용하는 마진과 패딩에 대한 값이 어떻게 적용되는지 확인해 보겠습니다.
 </div>
-
 
 </body>
 </html>

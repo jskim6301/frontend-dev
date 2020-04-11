@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var s = "";
+for(property in window){
+	s += (property + ":" + window[property] + "\n");
+}
+console.log(s);
+
+//팝업창
+setTimeout(function(){
+	var popup = window.open('popup.html','popup','width=600, height=400');
+	setTimeout(function(){
+		//popup의 문서 내용 바꾸기
+		// 보안 문제(cross domain) 때문에 같은 도메인에서만 가능
+		popup.document.write("<h1>popup text change</h1>")
+	},2000);
+	setTimeout(function(){
+		//popup의 JS실행하기
+		// 보안 문제(cross domain) 때문에 같은 도메인에서만 가능
+		popup.message();
+	},6000);	
+	setTimeout(function(){
+		//자식창 위치 이동
+		popup.moveTo(200,200);
+	},4000);	
+},2000);
+</script>
+</head>
+<body>
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>1.window 전역 객체</h2>
+	<ul>
+		<li>자바스크립트가 브라우저 자체를 제어하기 위한 객체다</li>
+		<li>자바스크립트의 전역 스코프를 가지는 변수, 함수들은 모두 window</li>
+	</ul>
+</body>
+</html>
