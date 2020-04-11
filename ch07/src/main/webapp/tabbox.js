@@ -14,7 +14,7 @@ var TabBox = {
 
 		var _this = $(this);
 
-		var _textContent = this.textContent;
+		var _textContent = this.textContent; //this.innerHTML, this.innerText , textContent 3개 차이?
 		
 		$(function(){
 			$(".tab-box ul li").removeClass("selected");
