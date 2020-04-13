@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./jquery/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+/*
+var logininfo = {
+	email = $("input[name='email']").value;
+	pwd = $("input[name='pwd']").value;
+}
+*/
+
+/*
+ url: 'http://localhost:8088/ch07/user/login',
+
+ data='email='+email + "&" + "pwd" + pwd, 형식을 logininfo 객체로 만든 후
+========> data = json.stringify(loginInfo),
+ 
+ */
+ 
+ 
+$(function(){
+	$("button").click(function(){
+		$.ajax({
+			url: 'http://localhost:8088/ch07/data.xml',
+			async:true,
+			type:'get',
+			/* contentType:'application/json', 서버한테 보낼때 쓴다*/
+			data:'',  // post방식일때 contentType과 data 부분이 바뀜
+			dataType: 'xml', /*서버한테 받을때 쓴다*/
+			success: function(data){//DOM으로 들어온다
+				console.log($(data));
+				console.log($("item",data));//item, item, prevObject: jQuery.fn.init(1)] 유사배열
+				$("item",data).each(function(){
+					var html ="";
+					html += "<dt>"+$("title",this).text()+"</dt>";
+					html += "<dd>"+$("description",this).text()+"</dd>";
+					
+					$("dl").append(html);
+				});
+			}
+		});
+	});	
+});
+</script>
+</head>
+<body>
+	<button>XML가져오기</button>
+	<div>
+		<dl>
+			<dt>제목1</dt>
+				<dd>내용1</dd>
+			<dt>제목2</dt>
+				<dd>내용2</dd>
+			<dt>제목3</dt>
+				<dd>내용3</dd>								
+		</dl>
+	</div>		
+</body>
+</html>

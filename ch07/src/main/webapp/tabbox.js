@@ -2,7 +2,7 @@
 var TabBox = {
 	init: function(){
 		$(function(){
-			var $a = $(".tab-box ul li");
+			var $a = $(".tab-box ul li");//유사 배열
 
 			for(var i=0;i<$a.length;i++){
 				var b = $a.get(i);
